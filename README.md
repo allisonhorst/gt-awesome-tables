@@ -1,6 +1,6 @@
 # 'gt' for nice tables in R!
 
-The package: 
+The package description, excellent examples, etc.: 
 <https://github.com/rstudio/gt>
 
 # The installation:
