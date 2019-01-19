@@ -1,5 +1,5 @@
 ---
-title: "Tiny practices with gt"
+title: "Tiny practices: tables with gt"
 author: "Allison Horst"
 date: "January 18, 2019"
 output: html_document
