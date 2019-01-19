@@ -1,5 +1,5 @@
 ---
-title: "Tiny practice with gt"
+title: "Tiny practices with gt"
 author: "Allison Horst"
 date: "January 18, 2019"
 output: html_document
@@ -9,7 +9,7 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-I made this because I needed to do some really simple examples. Here are 10 different gt tables that worked, using short examples with data existing in the *datasets* package. 
+I made this because I needed to do some really simple examples. Here are 10 different gt tables that worked, using short examples with data existing in the *datasets* package or that I create here. 
 
 ### Attach packages
 ```{r, message = FALSE, warning = FALSE}
@@ -17,7 +17,7 @@ library(tidyverse)
 library(gt)
 ```
 
-###Ground Zero. It just works. 
+###Example 0. It just works... 
 
 Make a table of the first 5 observations in the 'rock' dataset.
 
@@ -89,24 +89,24 @@ tooth_length %>% # Take tooth_length
     columns = vars(dose), # Third column: dose (numeric)
     decimals = 2 # With 2 decimal places
   ) %>% 
-  data_color(
-    columns = vars(supp), # Cell colors for supp column
+  data_color( # Update cell colors...
+    columns = vars(supp), # ...for supp column!
     colors = scales::col_factor( # <- bc it's a factor
       palette = c(
         "green","cyan"), # Two factor levels, two colors
       domain = c("OJ","VC")# Levels
   )
   ) %>% 
-  data_color(
-    columns = vars(dose), # Cell colors for dose column 
+  data_color( # Update cell colors...
+    columns = vars(dose), # ...for dose column 
     colors = scales::col_numeric( # <- bc it's numeric
       palette = c(
         "yellow","orange"), # A color scheme (gradient)
       domain = c(0.5,2) # Column scale endpoints
   )
   ) %>% 
-  data_color(
-    columns = vars(mean_len), # Cell colors for mean_len column
+  data_color( # Update cell colors...
+    columns = vars(mean_len), # ...for mean_len column
     colors = scales::col_numeric(
       palette = c(
         "red", "purple"), # Overboard colors! 
@@ -153,6 +153,53 @@ airquality %>% # Take the 'airquality' dataset...
   cols_hide( # Then hide the 'Wind' and 'Month' variables
     columns = vars(Wind, Month)
   )
+
+```
+
+###Example 4. Scientific notation! Column spanning label! (...and more colors bc I can't help it...) 
+
+I'll just make some data here (tibble 'fake'). PS this is my first time using tribble and it is SHOCKINGLY simple. What have I even been doing with my life... 
+
+```{r}
+
+fake <- tribble(
+  ~Species, ~Height, ~Mass,
+  "Blarg", 20500, 1980,
+  "Gorple", 17000, 775,
+  "Roglob", 11820, 20,
+  "Fwerpy", 8005, 352
+) %>% 
+  arrange(-Mass)
+
+```
+
+Then make a little table of 'fake' with values in scientific notation:
+
+```{r}
+
+fake %>% 
+  gt() %>% 
+  tab_header(
+    title = "Fake species data", # Add a title
+    subtitle = "another useful subtitle" # And a subtitle
+  ) %>%
+  fmt_scientific( # Reformat to scientific notation...
+    columns = vars(Height), # The values for the 'Height' variable
+    decimals = 3 # Keeping 3 decimal places
+  ) %>% 
+  fmt_scientific( # Reformat to scientific notation...
+    columns = vars(Mass), # The values for the 'Mass' variable
+    decimals = 1 # Keeping 1 decimal place
+  ) %>% 
+  data_color( # Update cell colors...
+    columns = vars(Mass), # ...for Mass column 
+    colors = scales::col_numeric( # <- bc it's numeric
+      palette = c(
+        "yellow", "red", "purple"), # A color scheme (gradient)
+      domain = c(1e1, 2e3) # Column scale endpoints
+  )
+  )
+  
 
 ```
 
