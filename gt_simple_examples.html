@@ -129,14 +129,29 @@ $(document).ready(function () {
 </div>
 
 
-<p>I made this because I needed to do some really simple examples. Here are 10 different gt tables that worked, using short examples with data existing in the <em>datasets</em> package or that I create here.</p>
+<p>I made this because I needed to do some really simple examples to get started with gt. Here are a few different gt tables that worked, using short examples with data existing in the <em>datasets</em> package or that I create here.</p>
+<p>What I tried in these example:</p>
+<ul>
+<li>Example 0: A first shot at just making the damn thing</li>
+<li>Example 1: Customizing title, column headers, and digits</li>
+<li>Example 2: Updating cell colors and adding footnotes</li>
+<li>Example 3: Updating NAs and hiding columns</li>
+<li>Example 4: Scientific notation!</li>
+<li>Example 5: Formatted dates and column spanning labels</li>
+</ul>
+<p>Overall feelings about gt: so awesome and user friendly I can hardly stand it. Make sure to check out the beautiful and wonderfully easy-to-follow documentation for the gt package:</p>
+<p><a href="https://github.com/rstudio/gt" class="uri">https://github.com/rstudio/gt</a></p>
 <div id="attach-packages" class="section level3">
 <h3>Attach packages</h3>
 <pre class="r"><code>library(tidyverse)
 library(gt)</code></pre>
 </div>
-<div id="example-0.-it-just-works" class="section level3">
-<h3>Example 0. It just works…</h3>
+<div id="examples" class="section level2 tabset">
+<h2>Examples</h2>
+<div id="example-0" class="section level3">
+<h3>Example 0</h3>
+<div id="it-really-just-works" class="section level4">
+<h4>It really just works…</h4>
 <p>Make a table of the first 5 observations in the ‘rock’ dataset.</p>
 <pre class="r"><code>rock %&gt;% # Get 'rock' data
   head(5) %&gt;% # First 5 lines only
@@ -145,7 +160,7 @@ library(gt)</code></pre>
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#hlwhqyjmlv .gt_table {
+#bowdhmorcy .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -164,13 +179,13 @@ library(gt)</code></pre>
   /* table.border.top.color */
 }
 
-#hlwhqyjmlv .gt_heading {
+#bowdhmorcy .gt_heading {
   background-color: #FFFFFF;
   /* heading.background.color */
   border-bottom-color: #FFFFFF;
 }
 
-#hlwhqyjmlv .gt_title {
+#bowdhmorcy .gt_title {
   color: #000000;
   font-size: 125%;
   /* heading.title.font.size */
@@ -181,7 +196,7 @@ library(gt)</code></pre>
   border-bottom-width: 0;
 }
 
-#hlwhqyjmlv .gt_subtitle {
+#bowdhmorcy .gt_subtitle {
   color: #000000;
   font-size: 85%;
   /* heading.subtitle.font.size */
@@ -192,7 +207,7 @@ library(gt)</code></pre>
   border-top-width: 0;
 }
 
-#hlwhqyjmlv .gt_bottom_border {
+#bowdhmorcy .gt_bottom_border {
   border-bottom-style: solid;
   /* heading.border.bottom.style */
   border-bottom-width: 2px;
@@ -201,7 +216,7 @@ library(gt)</code></pre>
   /* heading.border.bottom.color */
 }
 
-#hlwhqyjmlv .gt_column_spanner {
+#bowdhmorcy .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #A8A8A8;
@@ -209,7 +224,7 @@ library(gt)</code></pre>
   padding-bottom: 4px;
 }
 
-#hlwhqyjmlv .gt_col_heading {
+#bowdhmorcy .gt_col_heading {
   color: #000000;
   background-color: #FFFFFF;
   /* column_labels.background.color */
@@ -222,11 +237,11 @@ library(gt)</code></pre>
   margin: 10px;
 }
 
-#hlwhqyjmlv .gt_sep_right {
+#bowdhmorcy .gt_sep_right {
   border-right: 5px solid #FFFFFF;
 }
 
-#hlwhqyjmlv .gt_group_heading {
+#bowdhmorcy .gt_group_heading {
   padding: 8px;
   color: #000000;
   background-color: #FFFFFF;
@@ -250,7 +265,7 @@ library(gt)</code></pre>
   vertical-align: middle;
 }
 
-#hlwhqyjmlv .gt_empty_group_heading {
+#bowdhmorcy .gt_empty_group_heading {
   padding: 0.5px;
   color: #000000;
   background-color: #FFFFFF;
@@ -274,29 +289,29 @@ library(gt)</code></pre>
   vertical-align: middle;
 }
 
-#hlwhqyjmlv .gt_striped {
+#bowdhmorcy .gt_striped {
   background-color: #f2f2f2;
 }
 
-#hlwhqyjmlv .gt_row {
+#bowdhmorcy .gt_row {
   padding: 10px;
   /* row.padding */
   margin: 10px;
   vertical-align: middle;
 }
 
-#hlwhqyjmlv .gt_stub {
+#bowdhmorcy .gt_stub {
   border-right-style: solid;
   border-right-width: 2px;
   border-right-color: #A8A8A8;
   padding-left: 12px;
 }
 
-#hlwhqyjmlv .gt_stub.gt_row {
+#bowdhmorcy .gt_stub.gt_row {
   background-color: #FFFFFF;
 }
 
-#hlwhqyjmlv .gt_summary_row {
+#bowdhmorcy .gt_summary_row {
   background-color: #FFFFFF;
   /* summary_row.background.color */
   padding: 6px;
@@ -305,13 +320,13 @@ library(gt)</code></pre>
   /* summary_row.text_transform */
 }
 
-#hlwhqyjmlv .gt_first_summary_row {
+#bowdhmorcy .gt_first_summary_row {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #A8A8A8;
 }
 
-#hlwhqyjmlv .gt_table_body {
+#bowdhmorcy .gt_table_body {
   border-top-style: solid;
   /* field.border.top.style */
   border-top-width: 2px;
@@ -326,55 +341,55 @@ library(gt)</code></pre>
   /* field.border.bottom.color */
 }
 
-#hlwhqyjmlv .gt_footnote {
+#bowdhmorcy .gt_footnote {
   font-size: 90%;
   /* footnote.font.size */
   padding: 4px;
   /* footnote.padding */
 }
 
-#hlwhqyjmlv .gt_sourcenote {
+#bowdhmorcy .gt_sourcenote {
   font-size: 90%;
   /* sourcenote.font.size */
   padding: 4px;
   /* sourcenote.padding */
 }
 
-#hlwhqyjmlv .gt_center {
+#bowdhmorcy .gt_center {
   text-align: center;
 }
 
-#hlwhqyjmlv .gt_left {
+#bowdhmorcy .gt_left {
   text-align: left;
 }
 
-#hlwhqyjmlv .gt_right {
+#bowdhmorcy .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#hlwhqyjmlv .gt_font_normal {
+#bowdhmorcy .gt_font_normal {
   font-weight: normal;
 }
 
-#hlwhqyjmlv .gt_font_bold {
+#bowdhmorcy .gt_font_bold {
   font-weight: bold;
 }
 
-#hlwhqyjmlv .gt_font_italic {
+#bowdhmorcy .gt_font_italic {
   font-style: italic;
 }
 
-#hlwhqyjmlv .gt_super {
+#bowdhmorcy .gt_super {
   font-size: 65%;
 }
 
-#hlwhqyjmlv .gt_footnote_glyph {
+#bowdhmorcy .gt_footnote_glyph {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="hlwhqyjmlv" style="overflow-x:auto;"><!--gt table start-->
+<div id="bowdhmorcy" style="overflow-x:auto;"><!--gt table start-->
 <table class='gt_table'>
 <tr>
 <th class='gt_col_heading gt_right' rowspan='1' colspan='1'>area</th>
@@ -418,8 +433,11 @@ library(gt)</code></pre>
 <!--gt table end-->
 </div>
 </div>
-<div id="example-1.-the-first-try-at-customization" class="section level3">
-<h3>Example 1. The first try at customization</h3>
+</div>
+<div id="example-1" class="section level3">
+<h3>Example 1</h3>
+<div id="the-first-try-at-customization." class="section level4">
+<h4>The first try at customization.</h4>
 <p>Biological oxygen demand table (BOD)</p>
 <p>Use the built-in dataset BOD to create a simple customized table. The BOD dataset (see ?BOD for documentation) has two columns: <strong>Time</strong> and <strong>demand</strong> (both numeric).</p>
 <pre class="r"><code>BOD %&gt;% # Get the data...
@@ -440,7 +458,7 @@ gt() %&gt;% # use 'gt' to make an awesome table...
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#fowjwfkbdv .gt_table {
+#vpxltcfqmx .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -459,13 +477,13 @@ gt() %&gt;% # use 'gt' to make an awesome table...
   /* table.border.top.color */
 }
 
-#fowjwfkbdv .gt_heading {
+#vpxltcfqmx .gt_heading {
   background-color: #FFFFFF;
   /* heading.background.color */
   border-bottom-color: #FFFFFF;
 }
 
-#fowjwfkbdv .gt_title {
+#vpxltcfqmx .gt_title {
   color: #000000;
   font-size: 125%;
   /* heading.title.font.size */
@@ -476,7 +494,7 @@ gt() %&gt;% # use 'gt' to make an awesome table...
   border-bottom-width: 0;
 }
 
-#fowjwfkbdv .gt_subtitle {
+#vpxltcfqmx .gt_subtitle {
   color: #000000;
   font-size: 85%;
   /* heading.subtitle.font.size */
@@ -487,7 +505,7 @@ gt() %&gt;% # use 'gt' to make an awesome table...
   border-top-width: 0;
 }
 
-#fowjwfkbdv .gt_bottom_border {
+#vpxltcfqmx .gt_bottom_border {
   border-bottom-style: solid;
   /* heading.border.bottom.style */
   border-bottom-width: 2px;
@@ -496,7 +514,7 @@ gt() %&gt;% # use 'gt' to make an awesome table...
   /* heading.border.bottom.color */
 }
 
-#fowjwfkbdv .gt_column_spanner {
+#vpxltcfqmx .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #A8A8A8;
@@ -504,7 +522,7 @@ gt() %&gt;% # use 'gt' to make an awesome table...
   padding-bottom: 4px;
 }
 
-#fowjwfkbdv .gt_col_heading {
+#vpxltcfqmx .gt_col_heading {
   color: #000000;
   background-color: #FFFFFF;
   /* column_labels.background.color */
@@ -517,11 +535,11 @@ gt() %&gt;% # use 'gt' to make an awesome table...
   margin: 10px;
 }
 
-#fowjwfkbdv .gt_sep_right {
+#vpxltcfqmx .gt_sep_right {
   border-right: 5px solid #FFFFFF;
 }
 
-#fowjwfkbdv .gt_group_heading {
+#vpxltcfqmx .gt_group_heading {
   padding: 8px;
   color: #000000;
   background-color: #FFFFFF;
@@ -545,7 +563,7 @@ gt() %&gt;% # use 'gt' to make an awesome table...
   vertical-align: middle;
 }
 
-#fowjwfkbdv .gt_empty_group_heading {
+#vpxltcfqmx .gt_empty_group_heading {
   padding: 0.5px;
   color: #000000;
   background-color: #FFFFFF;
@@ -569,29 +587,29 @@ gt() %&gt;% # use 'gt' to make an awesome table...
   vertical-align: middle;
 }
 
-#fowjwfkbdv .gt_striped {
+#vpxltcfqmx .gt_striped {
   background-color: #f2f2f2;
 }
 
-#fowjwfkbdv .gt_row {
+#vpxltcfqmx .gt_row {
   padding: 10px;
   /* row.padding */
   margin: 10px;
   vertical-align: middle;
 }
 
-#fowjwfkbdv .gt_stub {
+#vpxltcfqmx .gt_stub {
   border-right-style: solid;
   border-right-width: 2px;
   border-right-color: #A8A8A8;
   padding-left: 12px;
 }
 
-#fowjwfkbdv .gt_stub.gt_row {
+#vpxltcfqmx .gt_stub.gt_row {
   background-color: #FFFFFF;
 }
 
-#fowjwfkbdv .gt_summary_row {
+#vpxltcfqmx .gt_summary_row {
   background-color: #FFFFFF;
   /* summary_row.background.color */
   padding: 6px;
@@ -600,13 +618,13 @@ gt() %&gt;% # use 'gt' to make an awesome table...
   /* summary_row.text_transform */
 }
 
-#fowjwfkbdv .gt_first_summary_row {
+#vpxltcfqmx .gt_first_summary_row {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #A8A8A8;
 }
 
-#fowjwfkbdv .gt_table_body {
+#vpxltcfqmx .gt_table_body {
   border-top-style: solid;
   /* field.border.top.style */
   border-top-width: 2px;
@@ -621,55 +639,55 @@ gt() %&gt;% # use 'gt' to make an awesome table...
   /* field.border.bottom.color */
 }
 
-#fowjwfkbdv .gt_footnote {
+#vpxltcfqmx .gt_footnote {
   font-size: 90%;
   /* footnote.font.size */
   padding: 4px;
   /* footnote.padding */
 }
 
-#fowjwfkbdv .gt_sourcenote {
+#vpxltcfqmx .gt_sourcenote {
   font-size: 90%;
   /* sourcenote.font.size */
   padding: 4px;
   /* sourcenote.padding */
 }
 
-#fowjwfkbdv .gt_center {
+#vpxltcfqmx .gt_center {
   text-align: center;
 }
 
-#fowjwfkbdv .gt_left {
+#vpxltcfqmx .gt_left {
   text-align: left;
 }
 
-#fowjwfkbdv .gt_right {
+#vpxltcfqmx .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#fowjwfkbdv .gt_font_normal {
+#vpxltcfqmx .gt_font_normal {
   font-weight: normal;
 }
 
-#fowjwfkbdv .gt_font_bold {
+#vpxltcfqmx .gt_font_bold {
   font-weight: bold;
 }
 
-#fowjwfkbdv .gt_font_italic {
+#vpxltcfqmx .gt_font_italic {
   font-style: italic;
 }
 
-#fowjwfkbdv .gt_super {
+#vpxltcfqmx .gt_super {
   font-size: 65%;
 }
 
-#fowjwfkbdv .gt_footnote_glyph {
+#vpxltcfqmx .gt_footnote_glyph {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="fowjwfkbdv" style="overflow-x:auto;"><!--gt table start-->
+<div id="vpxltcfqmx" style="overflow-x:auto;"><!--gt table start-->
 <table class='gt_table'>
 <thead>
 <tr>
@@ -713,8 +731,11 @@ gt() %&gt;% # use 'gt' to make an awesome table...
 <!--gt table end-->
 </div>
 </div>
-<div id="example-2.-the-one-where-i-added-colors-and-footnotes" class="section level3">
-<h3>Example 2. The one where I added colors and footnotes</h3>
+</div>
+<div id="example-2" class="section level3">
+<h3>Example 2</h3>
+<div id="the-one-where-i-added-colors-and-footnotes" class="section level4">
+<h4>The one where I added colors and footnotes</h4>
 <p>ToothGrowth (VitC effect on tooth growth in guinea pigs)</p>
 <p>See ?ToothGrowth for dataset documentation. The ToothGrowth dataset has three variables: <strong>len</strong> (tooth length), <strong>supp</strong> (supplement ID), <strong>dose</strong> (dosage). I use group_by + summarize here to find mean tooth length grouped by supplement and dosage first, then create a table of the means.</p>
 <pre class="r"><code># Some wrangling (grouped means by supplement + dosage):
@@ -785,7 +806,7 @@ tooth_length %&gt;% # Take tooth_length
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#ksiehywxtg .gt_table {
+#cfeimpxqrs .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -804,13 +825,13 @@ tooth_length %&gt;% # Take tooth_length
   /* table.border.top.color */
 }
 
-#ksiehywxtg .gt_heading {
+#cfeimpxqrs .gt_heading {
   background-color: #FFFFFF;
   /* heading.background.color */
   border-bottom-color: #FFFFFF;
 }
 
-#ksiehywxtg .gt_title {
+#cfeimpxqrs .gt_title {
   color: #000000;
   font-size: 125%;
   /* heading.title.font.size */
@@ -821,7 +842,7 @@ tooth_length %&gt;% # Take tooth_length
   border-bottom-width: 0;
 }
 
-#ksiehywxtg .gt_subtitle {
+#cfeimpxqrs .gt_subtitle {
   color: #000000;
   font-size: 85%;
   /* heading.subtitle.font.size */
@@ -832,7 +853,7 @@ tooth_length %&gt;% # Take tooth_length
   border-top-width: 0;
 }
 
-#ksiehywxtg .gt_bottom_border {
+#cfeimpxqrs .gt_bottom_border {
   border-bottom-style: solid;
   /* heading.border.bottom.style */
   border-bottom-width: 2px;
@@ -841,7 +862,7 @@ tooth_length %&gt;% # Take tooth_length
   /* heading.border.bottom.color */
 }
 
-#ksiehywxtg .gt_column_spanner {
+#cfeimpxqrs .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #A8A8A8;
@@ -849,7 +870,7 @@ tooth_length %&gt;% # Take tooth_length
   padding-bottom: 4px;
 }
 
-#ksiehywxtg .gt_col_heading {
+#cfeimpxqrs .gt_col_heading {
   color: #000000;
   background-color: #FFFFFF;
   /* column_labels.background.color */
@@ -862,11 +883,11 @@ tooth_length %&gt;% # Take tooth_length
   margin: 10px;
 }
 
-#ksiehywxtg .gt_sep_right {
+#cfeimpxqrs .gt_sep_right {
   border-right: 5px solid #FFFFFF;
 }
 
-#ksiehywxtg .gt_group_heading {
+#cfeimpxqrs .gt_group_heading {
   padding: 8px;
   color: #000000;
   background-color: #FFFFFF;
@@ -890,7 +911,7 @@ tooth_length %&gt;% # Take tooth_length
   vertical-align: middle;
 }
 
-#ksiehywxtg .gt_empty_group_heading {
+#cfeimpxqrs .gt_empty_group_heading {
   padding: 0.5px;
   color: #000000;
   background-color: #FFFFFF;
@@ -914,29 +935,29 @@ tooth_length %&gt;% # Take tooth_length
   vertical-align: middle;
 }
 
-#ksiehywxtg .gt_striped {
+#cfeimpxqrs .gt_striped {
   background-color: #f2f2f2;
 }
 
-#ksiehywxtg .gt_row {
+#cfeimpxqrs .gt_row {
   padding: 10px;
   /* row.padding */
   margin: 10px;
   vertical-align: middle;
 }
 
-#ksiehywxtg .gt_stub {
+#cfeimpxqrs .gt_stub {
   border-right-style: solid;
   border-right-width: 2px;
   border-right-color: #A8A8A8;
   padding-left: 12px;
 }
 
-#ksiehywxtg .gt_stub.gt_row {
+#cfeimpxqrs .gt_stub.gt_row {
   background-color: #FFFFFF;
 }
 
-#ksiehywxtg .gt_summary_row {
+#cfeimpxqrs .gt_summary_row {
   background-color: #FFFFFF;
   /* summary_row.background.color */
   padding: 6px;
@@ -945,13 +966,13 @@ tooth_length %&gt;% # Take tooth_length
   /* summary_row.text_transform */
 }
 
-#ksiehywxtg .gt_first_summary_row {
+#cfeimpxqrs .gt_first_summary_row {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #A8A8A8;
 }
 
-#ksiehywxtg .gt_table_body {
+#cfeimpxqrs .gt_table_body {
   border-top-style: solid;
   /* field.border.top.style */
   border-top-width: 2px;
@@ -966,55 +987,55 @@ tooth_length %&gt;% # Take tooth_length
   /* field.border.bottom.color */
 }
 
-#ksiehywxtg .gt_footnote {
+#cfeimpxqrs .gt_footnote {
   font-size: 90%;
   /* footnote.font.size */
   padding: 4px;
   /* footnote.padding */
 }
 
-#ksiehywxtg .gt_sourcenote {
+#cfeimpxqrs .gt_sourcenote {
   font-size: 90%;
   /* sourcenote.font.size */
   padding: 4px;
   /* sourcenote.padding */
 }
 
-#ksiehywxtg .gt_center {
+#cfeimpxqrs .gt_center {
   text-align: center;
 }
 
-#ksiehywxtg .gt_left {
+#cfeimpxqrs .gt_left {
   text-align: left;
 }
 
-#ksiehywxtg .gt_right {
+#cfeimpxqrs .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#ksiehywxtg .gt_font_normal {
+#cfeimpxqrs .gt_font_normal {
   font-weight: normal;
 }
 
-#ksiehywxtg .gt_font_bold {
+#cfeimpxqrs .gt_font_bold {
   font-weight: bold;
 }
 
-#ksiehywxtg .gt_font_italic {
+#cfeimpxqrs .gt_font_italic {
   font-style: italic;
 }
 
-#ksiehywxtg .gt_super {
+#cfeimpxqrs .gt_super {
   font-size: 65%;
 }
 
-#ksiehywxtg .gt_footnote_glyph {
+#cfeimpxqrs .gt_footnote_glyph {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="ksiehywxtg" style="overflow-x:auto;"><!--gt table start-->
+<div id="cfeimpxqrs" style="overflow-x:auto;"><!--gt table start-->
 <table class='gt_table'>
 <thead>
 <tr>
@@ -1069,8 +1090,11 @@ tooth_length %&gt;% # Take tooth_length
 <!--gt table end-->
 </div>
 </div>
-<div id="example-3.-updating-nas-hiding-columns" class="section level3">
-<h3>Example 3. Updating NAs, hiding columns</h3>
+</div>
+<div id="example-3" class="section level3">
+<h3>Example 3</h3>
+<div id="updating-nas-hiding-columns" class="section level4">
+<h4>Updating NAs, hiding columns</h4>
 <p>Using first 10 observations in the ‘airquality’ dataset. Existing variables: <strong>Ozone</strong>, <strong>Solar.R</strong>, <strong>Wind</strong>, <strong>Temp</strong>, <strong>Month</strong>, <strong>Day</strong></p>
 <pre class="r"><code>airquality %&gt;% # Take the 'airquality' dataset...
   head(10) %&gt;% # Then just grab the first 10 observations...
@@ -1094,7 +1118,7 @@ tooth_length %&gt;% # Take tooth_length
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#nuhtxmaide .gt_table {
+#bkkvsbglse .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1113,13 +1137,13 @@ tooth_length %&gt;% # Take tooth_length
   /* table.border.top.color */
 }
 
-#nuhtxmaide .gt_heading {
+#bkkvsbglse .gt_heading {
   background-color: #FFFFFF;
   /* heading.background.color */
   border-bottom-color: #FFFFFF;
 }
 
-#nuhtxmaide .gt_title {
+#bkkvsbglse .gt_title {
   color: #000000;
   font-size: 125%;
   /* heading.title.font.size */
@@ -1130,7 +1154,7 @@ tooth_length %&gt;% # Take tooth_length
   border-bottom-width: 0;
 }
 
-#nuhtxmaide .gt_subtitle {
+#bkkvsbglse .gt_subtitle {
   color: #000000;
   font-size: 85%;
   /* heading.subtitle.font.size */
@@ -1141,7 +1165,7 @@ tooth_length %&gt;% # Take tooth_length
   border-top-width: 0;
 }
 
-#nuhtxmaide .gt_bottom_border {
+#bkkvsbglse .gt_bottom_border {
   border-bottom-style: solid;
   /* heading.border.bottom.style */
   border-bottom-width: 2px;
@@ -1150,7 +1174,7 @@ tooth_length %&gt;% # Take tooth_length
   /* heading.border.bottom.color */
 }
 
-#nuhtxmaide .gt_column_spanner {
+#bkkvsbglse .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #A8A8A8;
@@ -1158,7 +1182,7 @@ tooth_length %&gt;% # Take tooth_length
   padding-bottom: 4px;
 }
 
-#nuhtxmaide .gt_col_heading {
+#bkkvsbglse .gt_col_heading {
   color: #000000;
   background-color: #FFFFFF;
   /* column_labels.background.color */
@@ -1171,11 +1195,11 @@ tooth_length %&gt;% # Take tooth_length
   margin: 10px;
 }
 
-#nuhtxmaide .gt_sep_right {
+#bkkvsbglse .gt_sep_right {
   border-right: 5px solid #FFFFFF;
 }
 
-#nuhtxmaide .gt_group_heading {
+#bkkvsbglse .gt_group_heading {
   padding: 8px;
   color: #000000;
   background-color: #FFFFFF;
@@ -1199,7 +1223,7 @@ tooth_length %&gt;% # Take tooth_length
   vertical-align: middle;
 }
 
-#nuhtxmaide .gt_empty_group_heading {
+#bkkvsbglse .gt_empty_group_heading {
   padding: 0.5px;
   color: #000000;
   background-color: #FFFFFF;
@@ -1223,29 +1247,29 @@ tooth_length %&gt;% # Take tooth_length
   vertical-align: middle;
 }
 
-#nuhtxmaide .gt_striped {
+#bkkvsbglse .gt_striped {
   background-color: #f2f2f2;
 }
 
-#nuhtxmaide .gt_row {
+#bkkvsbglse .gt_row {
   padding: 10px;
   /* row.padding */
   margin: 10px;
   vertical-align: middle;
 }
 
-#nuhtxmaide .gt_stub {
+#bkkvsbglse .gt_stub {
   border-right-style: solid;
   border-right-width: 2px;
   border-right-color: #A8A8A8;
   padding-left: 12px;
 }
 
-#nuhtxmaide .gt_stub.gt_row {
+#bkkvsbglse .gt_stub.gt_row {
   background-color: #FFFFFF;
 }
 
-#nuhtxmaide .gt_summary_row {
+#bkkvsbglse .gt_summary_row {
   background-color: #FFFFFF;
   /* summary_row.background.color */
   padding: 6px;
@@ -1254,13 +1278,13 @@ tooth_length %&gt;% # Take tooth_length
   /* summary_row.text_transform */
 }
 
-#nuhtxmaide .gt_first_summary_row {
+#bkkvsbglse .gt_first_summary_row {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #A8A8A8;
 }
 
-#nuhtxmaide .gt_table_body {
+#bkkvsbglse .gt_table_body {
   border-top-style: solid;
   /* field.border.top.style */
   border-top-width: 2px;
@@ -1275,55 +1299,55 @@ tooth_length %&gt;% # Take tooth_length
   /* field.border.bottom.color */
 }
 
-#nuhtxmaide .gt_footnote {
+#bkkvsbglse .gt_footnote {
   font-size: 90%;
   /* footnote.font.size */
   padding: 4px;
   /* footnote.padding */
 }
 
-#nuhtxmaide .gt_sourcenote {
+#bkkvsbglse .gt_sourcenote {
   font-size: 90%;
   /* sourcenote.font.size */
   padding: 4px;
   /* sourcenote.padding */
 }
 
-#nuhtxmaide .gt_center {
+#bkkvsbglse .gt_center {
   text-align: center;
 }
 
-#nuhtxmaide .gt_left {
+#bkkvsbglse .gt_left {
   text-align: left;
 }
 
-#nuhtxmaide .gt_right {
+#bkkvsbglse .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#nuhtxmaide .gt_font_normal {
+#bkkvsbglse .gt_font_normal {
   font-weight: normal;
 }
 
-#nuhtxmaide .gt_font_bold {
+#bkkvsbglse .gt_font_bold {
   font-weight: bold;
 }
 
-#nuhtxmaide .gt_font_italic {
+#bkkvsbglse .gt_font_italic {
   font-style: italic;
 }
 
-#nuhtxmaide .gt_super {
+#bkkvsbglse .gt_super {
   font-size: 65%;
 }
 
-#nuhtxmaide .gt_footnote_glyph {
+#bkkvsbglse .gt_footnote_glyph {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="nuhtxmaide" style="overflow-x:auto;"><!--gt table start-->
+<div id="bkkvsbglse" style="overflow-x:auto;"><!--gt table start-->
 <table class='gt_table'>
 <thead>
 <tr>
@@ -1405,17 +1429,20 @@ tooth_length %&gt;% # Take tooth_length
 <!--gt table end-->
 </div>
 </div>
-<div id="example-4.-scientific-notation-and-more-colors-cant-help-it" class="section level3">
-<h3>Example 4. Scientific notation (…and more colors, can’t help it…)</h3>
-<p>I’ll just make some data here (tibble ‘fake’). PS this is my first time using tribble and it is SHOCKINGLY simple. What have I even been doing with my life…</p>
-<pre class="r"><code>fake &lt;- tribble(
-  ~Species, ~Height, ~Mass,
-  &quot;Blarg&quot;, 20500, 1980,
-  &quot;Gorple&quot;, 17000, 775,
-  &quot;Roglob&quot;, 11820, 20,
-  &quot;Fwerpy&quot;, 8005, 352
+</div>
+<div id="example-4" class="section level3">
+<h3>Example 4</h3>
+<div id="scientific-notation-and-more-colors-cant-help-it" class="section level4">
+<h4>Scientific notation (…and more colors, can’t help it…)</h4>
+<p>I’ll just make some data here (tibble ‘fake’):</p>
+<pre class="r"><code>fake &lt;- tribble( # Create a tibble...
+  ~Species, ~Height, ~Mass, # These will be the column names (variables)
+  &quot;Blarg&quot;, 20500, 1980, # Row 1
+  &quot;Gorple&quot;, 17000, 775, # Row 2
+  &quot;Roglob&quot;, 11820, 20, # Row 3
+  &quot;Fwerpy&quot;, 8005, 352 # Row 4
 ) %&gt;% 
-  arrange(-Mass)</code></pre>
+  arrange(-Mass) # Arrange high-to-low by values in Mass column</code></pre>
 <p>Then make a little table of ‘fake’ with values in scientific notation:</p>
 <pre class="r"><code>fake %&gt;% 
   gt() %&gt;% 
@@ -1443,7 +1470,7 @@ tooth_length %&gt;% # Take tooth_length
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#jgcwgeybqj .gt_table {
+#nrugdypnsc .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1462,13 +1489,13 @@ tooth_length %&gt;% # Take tooth_length
   /* table.border.top.color */
 }
 
-#jgcwgeybqj .gt_heading {
+#nrugdypnsc .gt_heading {
   background-color: #FFFFFF;
   /* heading.background.color */
   border-bottom-color: #FFFFFF;
 }
 
-#jgcwgeybqj .gt_title {
+#nrugdypnsc .gt_title {
   color: #000000;
   font-size: 125%;
   /* heading.title.font.size */
@@ -1479,7 +1506,7 @@ tooth_length %&gt;% # Take tooth_length
   border-bottom-width: 0;
 }
 
-#jgcwgeybqj .gt_subtitle {
+#nrugdypnsc .gt_subtitle {
   color: #000000;
   font-size: 85%;
   /* heading.subtitle.font.size */
@@ -1490,7 +1517,7 @@ tooth_length %&gt;% # Take tooth_length
   border-top-width: 0;
 }
 
-#jgcwgeybqj .gt_bottom_border {
+#nrugdypnsc .gt_bottom_border {
   border-bottom-style: solid;
   /* heading.border.bottom.style */
   border-bottom-width: 2px;
@@ -1499,7 +1526,7 @@ tooth_length %&gt;% # Take tooth_length
   /* heading.border.bottom.color */
 }
 
-#jgcwgeybqj .gt_column_spanner {
+#nrugdypnsc .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #A8A8A8;
@@ -1507,7 +1534,7 @@ tooth_length %&gt;% # Take tooth_length
   padding-bottom: 4px;
 }
 
-#jgcwgeybqj .gt_col_heading {
+#nrugdypnsc .gt_col_heading {
   color: #000000;
   background-color: #FFFFFF;
   /* column_labels.background.color */
@@ -1520,11 +1547,11 @@ tooth_length %&gt;% # Take tooth_length
   margin: 10px;
 }
 
-#jgcwgeybqj .gt_sep_right {
+#nrugdypnsc .gt_sep_right {
   border-right: 5px solid #FFFFFF;
 }
 
-#jgcwgeybqj .gt_group_heading {
+#nrugdypnsc .gt_group_heading {
   padding: 8px;
   color: #000000;
   background-color: #FFFFFF;
@@ -1548,7 +1575,7 @@ tooth_length %&gt;% # Take tooth_length
   vertical-align: middle;
 }
 
-#jgcwgeybqj .gt_empty_group_heading {
+#nrugdypnsc .gt_empty_group_heading {
   padding: 0.5px;
   color: #000000;
   background-color: #FFFFFF;
@@ -1572,29 +1599,29 @@ tooth_length %&gt;% # Take tooth_length
   vertical-align: middle;
 }
 
-#jgcwgeybqj .gt_striped {
+#nrugdypnsc .gt_striped {
   background-color: #f2f2f2;
 }
 
-#jgcwgeybqj .gt_row {
+#nrugdypnsc .gt_row {
   padding: 10px;
   /* row.padding */
   margin: 10px;
   vertical-align: middle;
 }
 
-#jgcwgeybqj .gt_stub {
+#nrugdypnsc .gt_stub {
   border-right-style: solid;
   border-right-width: 2px;
   border-right-color: #A8A8A8;
   padding-left: 12px;
 }
 
-#jgcwgeybqj .gt_stub.gt_row {
+#nrugdypnsc .gt_stub.gt_row {
   background-color: #FFFFFF;
 }
 
-#jgcwgeybqj .gt_summary_row {
+#nrugdypnsc .gt_summary_row {
   background-color: #FFFFFF;
   /* summary_row.background.color */
   padding: 6px;
@@ -1603,13 +1630,13 @@ tooth_length %&gt;% # Take tooth_length
   /* summary_row.text_transform */
 }
 
-#jgcwgeybqj .gt_first_summary_row {
+#nrugdypnsc .gt_first_summary_row {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #A8A8A8;
 }
 
-#jgcwgeybqj .gt_table_body {
+#nrugdypnsc .gt_table_body {
   border-top-style: solid;
   /* field.border.top.style */
   border-top-width: 2px;
@@ -1624,55 +1651,55 @@ tooth_length %&gt;% # Take tooth_length
   /* field.border.bottom.color */
 }
 
-#jgcwgeybqj .gt_footnote {
+#nrugdypnsc .gt_footnote {
   font-size: 90%;
   /* footnote.font.size */
   padding: 4px;
   /* footnote.padding */
 }
 
-#jgcwgeybqj .gt_sourcenote {
+#nrugdypnsc .gt_sourcenote {
   font-size: 90%;
   /* sourcenote.font.size */
   padding: 4px;
   /* sourcenote.padding */
 }
 
-#jgcwgeybqj .gt_center {
+#nrugdypnsc .gt_center {
   text-align: center;
 }
 
-#jgcwgeybqj .gt_left {
+#nrugdypnsc .gt_left {
   text-align: left;
 }
 
-#jgcwgeybqj .gt_right {
+#nrugdypnsc .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#jgcwgeybqj .gt_font_normal {
+#nrugdypnsc .gt_font_normal {
   font-weight: normal;
 }
 
-#jgcwgeybqj .gt_font_bold {
+#nrugdypnsc .gt_font_bold {
   font-weight: bold;
 }
 
-#jgcwgeybqj .gt_font_italic {
+#nrugdypnsc .gt_font_italic {
   font-style: italic;
 }
 
-#jgcwgeybqj .gt_super {
+#nrugdypnsc .gt_super {
   font-size: 65%;
 }
 
-#jgcwgeybqj .gt_footnote_glyph {
+#nrugdypnsc .gt_footnote_glyph {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="jgcwgeybqj" style="overflow-x:auto;"><!--gt table start-->
+<div id="nrugdypnsc" style="overflow-x:auto;"><!--gt table start-->
 <table class='gt_table'>
 <thead>
 <tr>
@@ -1713,21 +1740,24 @@ tooth_length %&gt;% # Take tooth_length
 <!--gt table end-->
 </div>
 </div>
-<div id="example-5.-date-formatting-column-spanning-labels" class="section level3">
-<h3>Example 5. Date formatting + column spanning labels</h3>
-<p>First, I’ll make a little tibble with dates (again using tribble, my new favorite thing):</p>
-<pre class="r"><code>date_trial &lt;- tribble(
-  ~Date, ~Temp, ~Rain, ~Flavor, 
-  &quot;1980-01-04&quot;, 75, 0.4, &quot;Grape&quot;,
-  &quot;1975-05-28&quot;, 80, 0.2, &quot;Strawberry&quot;,
-  &quot;1993-09-02&quot;, 94, 0.1, &quot;Chocolate&quot;
+</div>
+<div id="example-5" class="section level3">
+<h3>Example 5</h3>
+<div id="date-formatting-column-spanning-labels" class="section level4">
+<h4>Date formatting + column spanning labels</h4>
+<p>First, I’ll make a little tibble with dates:</p>
+<pre class="r"><code>date_trial &lt;- tribble( # Create a tibble...
+  ~Date, ~Temp, ~Rain, ~Flavor, # These will be the variables (column names)
+  &quot;1980-01-04&quot;, 75, 0.4, &quot;Grape&quot;, # Row 1 
+  &quot;1975-05-28&quot;, 80, 0.2, &quot;Strawberry&quot;, # Row 2
+  &quot;1993-09-02&quot;, 94, 0.1, &quot;Chocolate&quot; # Row 3
 )</code></pre>
 <p>Then into a nice table:</p>
 <pre class="r"><code>date_trial %&gt;% 
   gt() %&gt;% 
   fmt_date(
     columns = vars(Date),
-    date_style = 5 # Try different numbers here to reformat! Cool!
+    date_style = 5 # Try different numbers here to reformat! So cool!
   ) %&gt;% 
   tab_spanner(
     label = &quot;Weather&quot;,
@@ -1737,7 +1767,7 @@ tooth_length %&gt;% # Take tooth_length
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, 'Helvetica Neue', 'Fira Sans', 'Droid Sans', Arial, sans-serif;
 }
 
-#danqodgzke .gt_table {
+#fbqlsbbygh .gt_table {
   display: table;
   border-collapse: collapse;
   margin-left: auto;
@@ -1756,13 +1786,13 @@ tooth_length %&gt;% # Take tooth_length
   /* table.border.top.color */
 }
 
-#danqodgzke .gt_heading {
+#fbqlsbbygh .gt_heading {
   background-color: #FFFFFF;
   /* heading.background.color */
   border-bottom-color: #FFFFFF;
 }
 
-#danqodgzke .gt_title {
+#fbqlsbbygh .gt_title {
   color: #000000;
   font-size: 125%;
   /* heading.title.font.size */
@@ -1773,7 +1803,7 @@ tooth_length %&gt;% # Take tooth_length
   border-bottom-width: 0;
 }
 
-#danqodgzke .gt_subtitle {
+#fbqlsbbygh .gt_subtitle {
   color: #000000;
   font-size: 85%;
   /* heading.subtitle.font.size */
@@ -1784,7 +1814,7 @@ tooth_length %&gt;% # Take tooth_length
   border-top-width: 0;
 }
 
-#danqodgzke .gt_bottom_border {
+#fbqlsbbygh .gt_bottom_border {
   border-bottom-style: solid;
   /* heading.border.bottom.style */
   border-bottom-width: 2px;
@@ -1793,7 +1823,7 @@ tooth_length %&gt;% # Take tooth_length
   /* heading.border.bottom.color */
 }
 
-#danqodgzke .gt_column_spanner {
+#fbqlsbbygh .gt_column_spanner {
   border-bottom-style: solid;
   border-bottom-width: 2px;
   border-bottom-color: #A8A8A8;
@@ -1801,7 +1831,7 @@ tooth_length %&gt;% # Take tooth_length
   padding-bottom: 4px;
 }
 
-#danqodgzke .gt_col_heading {
+#fbqlsbbygh .gt_col_heading {
   color: #000000;
   background-color: #FFFFFF;
   /* column_labels.background.color */
@@ -1814,11 +1844,11 @@ tooth_length %&gt;% # Take tooth_length
   margin: 10px;
 }
 
-#danqodgzke .gt_sep_right {
+#fbqlsbbygh .gt_sep_right {
   border-right: 5px solid #FFFFFF;
 }
 
-#danqodgzke .gt_group_heading {
+#fbqlsbbygh .gt_group_heading {
   padding: 8px;
   color: #000000;
   background-color: #FFFFFF;
@@ -1842,7 +1872,7 @@ tooth_length %&gt;% # Take tooth_length
   vertical-align: middle;
 }
 
-#danqodgzke .gt_empty_group_heading {
+#fbqlsbbygh .gt_empty_group_heading {
   padding: 0.5px;
   color: #000000;
   background-color: #FFFFFF;
@@ -1866,29 +1896,29 @@ tooth_length %&gt;% # Take tooth_length
   vertical-align: middle;
 }
 
-#danqodgzke .gt_striped {
+#fbqlsbbygh .gt_striped {
   background-color: #f2f2f2;
 }
 
-#danqodgzke .gt_row {
+#fbqlsbbygh .gt_row {
   padding: 10px;
   /* row.padding */
   margin: 10px;
   vertical-align: middle;
 }
 
-#danqodgzke .gt_stub {
+#fbqlsbbygh .gt_stub {
   border-right-style: solid;
   border-right-width: 2px;
   border-right-color: #A8A8A8;
   padding-left: 12px;
 }
 
-#danqodgzke .gt_stub.gt_row {
+#fbqlsbbygh .gt_stub.gt_row {
   background-color: #FFFFFF;
 }
 
-#danqodgzke .gt_summary_row {
+#fbqlsbbygh .gt_summary_row {
   background-color: #FFFFFF;
   /* summary_row.background.color */
   padding: 6px;
@@ -1897,13 +1927,13 @@ tooth_length %&gt;% # Take tooth_length
   /* summary_row.text_transform */
 }
 
-#danqodgzke .gt_first_summary_row {
+#fbqlsbbygh .gt_first_summary_row {
   border-top-style: solid;
   border-top-width: 2px;
   border-top-color: #A8A8A8;
 }
 
-#danqodgzke .gt_table_body {
+#fbqlsbbygh .gt_table_body {
   border-top-style: solid;
   /* field.border.top.style */
   border-top-width: 2px;
@@ -1918,55 +1948,55 @@ tooth_length %&gt;% # Take tooth_length
   /* field.border.bottom.color */
 }
 
-#danqodgzke .gt_footnote {
+#fbqlsbbygh .gt_footnote {
   font-size: 90%;
   /* footnote.font.size */
   padding: 4px;
   /* footnote.padding */
 }
 
-#danqodgzke .gt_sourcenote {
+#fbqlsbbygh .gt_sourcenote {
   font-size: 90%;
   /* sourcenote.font.size */
   padding: 4px;
   /* sourcenote.padding */
 }
 
-#danqodgzke .gt_center {
+#fbqlsbbygh .gt_center {
   text-align: center;
 }
 
-#danqodgzke .gt_left {
+#fbqlsbbygh .gt_left {
   text-align: left;
 }
 
-#danqodgzke .gt_right {
+#fbqlsbbygh .gt_right {
   text-align: right;
   font-variant-numeric: tabular-nums;
 }
 
-#danqodgzke .gt_font_normal {
+#fbqlsbbygh .gt_font_normal {
   font-weight: normal;
 }
 
-#danqodgzke .gt_font_bold {
+#fbqlsbbygh .gt_font_bold {
   font-weight: bold;
 }
 
-#danqodgzke .gt_font_italic {
+#fbqlsbbygh .gt_font_italic {
   font-style: italic;
 }
 
-#danqodgzke .gt_super {
+#fbqlsbbygh .gt_super {
   font-size: 65%;
 }
 
-#danqodgzke .gt_footnote_glyph {
+#fbqlsbbygh .gt_footnote_glyph {
   font-style: italic;
   font-size: 65%;
 }
 </style>
-<div id="danqodgzke" style="overflow-x:auto;"><!--gt table start-->
+<div id="fbqlsbbygh" style="overflow-x:auto;"><!--gt table start-->
 <table class='gt_table'>
 <tr>
 <th class='gt_col_heading gt_center' rowspan='2' colspan='1'>Date</th>
@@ -1999,6 +2029,8 @@ tooth_length %&gt;% # Take tooth_length
 </tbody>
 </table>
 <!--gt table end-->
+</div>
+</div>
 </div>
 </div>
 

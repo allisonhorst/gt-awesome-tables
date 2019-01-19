@@ -9,7 +9,20 @@ output: html_document
 knitr::opts_chunk$set(echo = TRUE)
 ```
 
-I made this because I needed to do some really simple examples. Here are 10 different gt tables that worked, using short examples with data existing in the *datasets* package or that I create here. 
+I made this because I needed to do some really simple examples to get started with gt. Here are a few different gt tables that worked, using short examples with data existing in the *datasets* package or that I create here. 
+
+What I tried in these example:
+
+- Example 0: A first shot at just making the damn thing
+- Example 1: Customizing title, column headers, and digits
+- Example 2: Updating cell colors and adding footnotes
+- Example 3: Updating NAs and hiding columns
+- Example 4: Scientific notation! 
+- Example 5: Formatted dates and column spanning labels
+
+Overall feelings about gt: so awesome and user friendly I can hardly stand it. Make sure to check out the beautiful and wonderfully easy-to-follow documentation for the gt package: 
+
+<https://github.com/rstudio/gt>
 
 ### Attach packages
 ```{r, message = FALSE, warning = FALSE}
@@ -17,7 +30,10 @@ library(tidyverse)
 library(gt)
 ```
 
-###Example 0. It just works... 
+## Examples {.tabset}
+
+### Example 0 
+####It really just works...
 
 Make a table of the first 5 observations in the 'rock' dataset.
 
@@ -29,7 +45,8 @@ rock %>% # Get 'rock' data
 
 ```
 
-###Example 1. The first try at customization
+### Example 1
+####The first try at customization.
 
 Biological oxygen demand table (BOD)
 
@@ -54,7 +71,8 @@ gt() %>% # use 'gt' to make an awesome table...
 
 ``` 
 
-###Example 2. The one where I added colors and footnotes 
+### Example 2 
+####The one where I added colors and footnotes 
 
 ToothGrowth (VitC effect on tooth growth in guinea pigs)
 
@@ -129,7 +147,8 @@ tooth_length %>% # Take tooth_length
 
 ```
 
-###Example 3. Updating NAs, hiding columns
+### Example 3 
+####Updating NAs, hiding columns
 
 Using first 10 observations in the 'airquality' dataset. Existing variables: **Ozone**, **Solar.R**, **Wind**, **Temp**, **Month**, **Day** 
 
@@ -156,20 +175,21 @@ airquality %>% # Take the 'airquality' dataset...
 
 ```
 
-###Example 4. Scientific notation (...and more colors, can't help it...) 
+### Example 4 
+####Scientific notation (...and more colors, can't help it...) 
 
-I'll just make some data here (tibble 'fake'). PS this is my first time using tribble and it is SHOCKINGLY simple. What have I even been doing with my life... 
+I'll just make some data here (tibble 'fake'): 
 
 ```{r}
 
-fake <- tribble(
-  ~Species, ~Height, ~Mass,
-  "Blarg", 20500, 1980,
-  "Gorple", 17000, 775,
-  "Roglob", 11820, 20,
-  "Fwerpy", 8005, 352
+fake <- tribble( # Create a tibble...
+  ~Species, ~Height, ~Mass, # These will be the column names (variables)
+  "Blarg", 20500, 1980, # Row 1
+  "Gorple", 17000, 775, # Row 2
+  "Roglob", 11820, 20, # Row 3
+  "Fwerpy", 8005, 352 # Row 4
 ) %>% 
-  arrange(-Mass)
+  arrange(-Mass) # Arrange high-to-low by values in Mass column
 
 ```
 
@@ -203,17 +223,18 @@ fake %>%
 
 ```
 
-###Example 5. Date formatting + column spanning labels
+###Example 5 
+####Date formatting + column spanning labels
 
-First, I'll make a little tibble with dates (again using tribble, my new favorite thing):
+First, I'll make a little tibble with dates:
 
 ```{r}
 
-date_trial <- tribble(
-  ~Date, ~Temp, ~Rain, ~Flavor, 
-  "1980-01-04", 75, 0.4, "Grape",
-  "1975-05-28", 80, 0.2, "Strawberry",
-  "1993-09-02", 94, 0.1, "Chocolate"
+date_trial <- tribble( # Create a tibble...
+  ~Date, ~Temp, ~Rain, ~Flavor, # These will be the variables (column names)
+  "1980-01-04", 75, 0.4, "Grape", # Row 1 
+  "1975-05-28", 80, 0.2, "Strawberry", # Row 2
+  "1993-09-02", 94, 0.1, "Chocolate" # Row 3
 )
 
 ```
@@ -226,7 +247,7 @@ date_trial %>%
   gt() %>% 
   fmt_date(
     columns = vars(Date),
-    date_style = 5 # Try different numbers here to reformat! Cool!
+    date_style = 5 # Try different numbers here to reformat! So cool!
   ) %>% 
   tab_spanner(
     label = "Weather",
@@ -234,4 +255,3 @@ date_trial %>%
   )
 
 ```
-
