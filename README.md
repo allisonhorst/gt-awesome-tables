@@ -1,6 +1,6 @@
-# 'gt' for nice tables in R!
+# 'gt' for nice tables in R (by @rich-iannone)
 
-The package description, excellent examples, etc.: 
+The package description, beautiful ReadMe, excellent examples + documentation, etc.: 
 <https://github.com/rstudio/gt>
 
 # The installation:
@@ -18,5 +18,4 @@ See the link above for a description of various components for a gt table.
 
 # Some little examples:
 
-Since sometimes I'm even overwhelmed by the "simple" examples in R-documentation, I created some of my own here (using built-in datasets or tibbles that I make). Each example shows something a little different, described in the .Rmd. Or just see the html, it's all there. 
-
+Since sometimes I'm even overwhelmed by the "simple" examples in R-documentation, I created some of my own here (using built-in datasets or tibbles that I make). Each example shows something a little different, described in the .Rmd. 
