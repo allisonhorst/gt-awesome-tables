@@ -1,0 +1,145 @@
+---
+title: "Tiny practice with gt"
+author: "Allison Horst"
+date: "January 18, 2019"
+output: html_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+I made this because I needed to do some really simple examples. Here are 10 different gt tables that worked, using short examples with data existing in the *datasets* package. 
+
+### Attach packages
+```{r, message = FALSE, warning = FALSE}
+library(tidyverse)
+library(gt)
+```
+
+###Ground Zero. It just works. 
+
+Make a table of the first 5 observations in the 'rock' dataset.
+
+```{r}
+
+rock %>% # Get 'rock' data
+  head(5) %>% # First 5 lines only
+  gt() # Make a table, it just works. 
+
+```
+
+###Example 1. The first try at customization
+
+Biological oxygen demand table (BOD)
+
+Use the built-in dataset BOD to create a simple customized table. The BOD dataset (see ?BOD for documentation) has two columns: **Time** and **demand** (both numeric).
+
+```{r}
+
+BOD %>% # Get the data...
+gt() %>% # use 'gt' to make an awesome table...
+  tab_header( 
+    title = "BOD Table Woooooo!", # ...with this title
+    subtitle = "Hooray gt!") %>% # and this subtitle
+  fmt_number( # Column 1 (numeric data)
+    columns = vars(Time), # What column 1 variable? BOD$Time
+    decimals = 2 # With two decimal places
+    ) %>% 
+  fmt_number( # Column 2 (also numeric data)
+    columns = vars(demand), # What column 2 variable? BOD$demand
+    decimals = 1 # I want this column to have one decimal place
+  ) %>% 
+  cols_label(Time = "Time (hours)", demand = "Demand (mg/L)") # Update labels
+
+``` 
+
+###Example 2. The one where I added colors and footnotes 
+
+ToothGrowth (VitC effect on tooth growth in guinea pigs)
+
+See ?ToothGrowth for dataset documentation. The ToothGrowth dataset has three variables: **len** (tooth length), **supp** (supplement ID), **dose** (dosage). I use group_by + summarize here to find mean tooth length grouped by supplement and dosage first, then create a table of the means. 
+
+```{r}
+
+# Some wrangling (grouped means by supplement + dosage):
+
+tooth_length <- ToothGrowth %>% 
+  group_by(supp, dose) %>% 
+  summarize(
+    mean_len = mean(len)
+  ) %>% 
+  as_tibble() 
+
+# A gt table: 
+tooth_length %>% # Take tooth_length
+  gt() %>% # Make a gt table with it
+  tab_header(
+    title = "A title just like that", # Add a title
+    subtitle = "(with something below it!)" # And a subtitle
+  ) %>%
+  fmt_passthrough( # Not sure about this but it works...
+    columns = vars(supp) # First column: supp (character)
+  ) %>% 
+  fmt_number(
+    columns = vars(mean_len), # Second column: mean_len (numeric)
+    decimals = 2 # With 4 decimal places
+  ) %>% 
+  fmt_number(
+    columns = vars(dose), # Third column: dose (numeric)
+    decimals = 2 # With 2 decimal places
+  ) %>% 
+  data_color(
+    columns = vars(supp), # Cell colors for supp column
+    colors = scales::col_factor( # <- bc it's a factor
+      palette = c(
+        "green","cyan"), # Two factor levels, two colors
+      domain = c("OJ","VC")# Levels
+  )
+  ) %>% 
+  data_color(
+    columns = vars(dose), # Cell colors for dose column 
+    colors = scales::col_numeric( # <- bc it's numeric
+      palette = c(
+        "yellow","orange"), # A color scheme (gradient)
+      domain = c(0.5,2) # Column scale endpoints
+  )
+  ) %>% 
+  data_color(
+    columns = vars(mean_len), # Cell colors for mean_len column
+    colors = scales::col_numeric(
+      palette = c(
+        "red", "purple"), # Overboard colors! 
+      domain = c(7,27) # Column scale endpoints
+  )
+  ) %>% 
+  cols_label(supp = "Supplement", dose = "Dosage (mg/d)", mean_len = "Mean Tooth Length") %>% # Make the column headers
+  tab_footnote(
+    footnote = "Baby footnote test", # This is the footnote text
+    locations = cells_column_labels(
+      columns = vars(supp) # Associated with column 'supp'
+      )
+    ) %>% 
+    tab_footnote(
+    footnote = "A second footnote", # Another line of footnote text
+    locations = cells_column_labels( 
+      columns = vars(dose) # Associated with column 'dose'
+      )
+    )
+
+```
+
+###Example 3. Trying updating NAs and hiding a column
+
+Using first 10 observations in the 'airquality' dataset. Existing variables: **Ozone**, **Solar.R**, **Wind**, **Temp**, **Month**, **Day** 
+
+```{r}
+
+airquality %>% 
+  head(10) %>% 
+  gt()
+
+```
+
+
+
