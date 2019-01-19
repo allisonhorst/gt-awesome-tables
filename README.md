@@ -18,4 +18,5 @@ See the link above for a description of various components for a gt table.
 
 # Some little examples:
 
-Since sometimes I'm even overwhelmed by the "simple" examples in R-documentation, I created some of my own here (using built-in datasets or tibbles that I make). Each example shows something a little different, described in the .Rmd. 
+Since sometimes I'm even overwhelmed by the "simple" examples in R-documentation, I created some of my own here (using built-in datasets or tibbles that I make). Each example shows something a little different.
+
