@@ -42,12 +42,12 @@ gt() %>% # use 'gt' to make an awesome table...
   tab_header( 
     title = "BOD Table Woooooo!", # ...with this title
     subtitle = "Hooray gt!") %>% # and this subtitle
-  fmt_number( # Column 1 (numeric data)
-    columns = vars(Time), # What column 1 variable? BOD$Time
+  fmt_number( # A column (numeric data)
+    columns = vars(Time), # What column variable? BOD$Time
     decimals = 2 # With two decimal places
     ) %>% 
-  fmt_number( # Column 2 (also numeric data)
-    columns = vars(demand), # What column 2 variable? BOD$demand
+  fmt_number( # Another column (also numeric data)
+    columns = vars(demand), # What column variable? BOD$demand
     decimals = 1 # I want this column to have one decimal place
   ) %>% 
   cols_label(Time = "Time (hours)", demand = "Demand (mg/L)") # Update labels
@@ -156,7 +156,7 @@ airquality %>% # Take the 'airquality' dataset...
 
 ```
 
-###Example 4. Scientific notation! Column spanning label! (...and more colors bc I can't help it...) 
+###Example 4. Scientific notation (...and more colors, can't help it...) 
 
 I'll just make some data here (tibble 'fake'). PS this is my first time using tribble and it is SHOCKINGLY simple. What have I even been doing with my life... 
 
@@ -203,5 +203,35 @@ fake %>%
 
 ```
 
+###Example 5. Date formatting + column spanning labels
 
+First, I'll make a little tibble with dates (again using tribble, my new favorite thing):
+
+```{r}
+
+date_trial <- tribble(
+  ~Date, ~Temp, ~Rain, ~Flavor, 
+  "1980-01-04", 75, 0.4, "Grape",
+  "1975-05-28", 80, 0.2, "Strawberry",
+  "1993-09-02", 94, 0.1, "Chocolate"
+)
+
+```
+
+Then into a nice table: 
+
+```{r}
+
+date_trial %>% 
+  gt() %>% 
+  fmt_date(
+    columns = vars(Date),
+    date_style = 5 # Try different numbers here to reformat! Cool!
+  ) %>% 
+  tab_spanner(
+    label = "Weather",
+    columns = vars(Temp, Rain)
+  )
+
+```
 
