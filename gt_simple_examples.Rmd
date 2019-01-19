@@ -129,15 +129,30 @@ tooth_length %>% # Take tooth_length
 
 ```
 
-###Example 3. Trying updating NAs and hiding a column
+###Example 3. Updating NAs, hiding columns
 
 Using first 10 observations in the 'airquality' dataset. Existing variables: **Ozone**, **Solar.R**, **Wind**, **Temp**, **Month**, **Day** 
 
 ```{r}
 
-airquality %>% 
-  head(10) %>% 
-  gt()
+airquality %>% # Take the 'airquality' dataset...
+  head(10) %>% # Then just grab the first 10 observations...
+  gt() %>% # Then make a gt table
+  tab_header(
+    title = "Air Quality dataset", # Add a title
+    subtitle = "...also with a subtitle" # And a subtitle
+  ) %>%
+  fmt_missing( # Then reassign the 'NA' values to something new
+    columns = vars(Ozone), # For variable 'Ozone', make "NA"s
+    missing_text = "Teddy" # ...to "Teddy" instead
+  ) %>% 
+  fmt_missing( # Reassign NAs for another column
+    columns = vars(Solar.R), # For variable 'Solar.R', make "NA"s
+    missing_text = "Dog" # ...to "Dog" instead
+  ) %>% 
+  cols_hide( # Then hide the 'Wind' and 'Month' variables
+    columns = vars(Wind, Month)
+  )
 
 ```
 
