@@ -1,7 +1,6 @@
 ---
 title: "Tiny practices: tables with gt"
 author: "Allison Horst"
-date: "January 18, 2019"
 output: html_document
 ---
 
@@ -33,7 +32,8 @@ library(gt)
 ## Examples {.tabset}
 
 ### Example 0 
-####It really just works...
+
+#### It really just works...
 
 Make a table of the first 5 observations in the 'rock' dataset.
 
@@ -46,7 +46,8 @@ rock %>% # Get 'rock' data
 ```
 
 ### Example 1
-####The first try at customization.
+
+#### The first try at customization
 
 Biological oxygen demand table (BOD)
 
@@ -72,7 +73,8 @@ gt() %>% # use 'gt' to make an awesome table...
 ``` 
 
 ### Example 2 
-####The one where I added colors and footnotes 
+
+#### The one where I added colors and footnotes 
 
 ToothGrowth (VitC effect on tooth growth in guinea pigs)
 
@@ -148,7 +150,8 @@ tooth_length %>% # Take tooth_length
 ```
 
 ### Example 3 
-####Updating NAs, hiding columns
+
+#### Updating NAs, hiding columns
 
 Using first 10 observations in the 'airquality' dataset. Existing variables: **Ozone**, **Solar.R**, **Wind**, **Temp**, **Month**, **Day** 
 
@@ -176,7 +179,8 @@ airquality %>% # Take the 'airquality' dataset...
 ```
 
 ### Example 4 
-####Scientific notation (...and more colors, can't help it...) 
+
+#### Scientific notation (...and more colors, can't help it...) 
 
 I'll just make some data here (tibble 'fake'): 
 
@@ -223,8 +227,8 @@ fake %>%
 
 ```
 
-###Example 5 
-####Date formatting + column spanning labels
+### Example 5 
+#### Date formatting + column spanning labels
 
 First, I'll make a little tibble with dates:
 

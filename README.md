@@ -8,6 +8,7 @@ The package description, excellent examples, etc.:
 Install the development version of the 'gt' package (see below - not yet on CRAN). Note: I had to update a number of packages (prompted during gt install). 
 
     install.packages("devtools")
+    library(devtools)
     remotes::install_github("rstudio/gt")
     
 # The summary (from RStudio):
